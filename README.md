@@ -1,1 +1,1 @@
-# JAVYRINTH
+"Welcome, everybody!" 
