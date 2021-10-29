@@ -1,1 +1,2 @@
 "Welcome, everybody!" 
+"Welcome!"
