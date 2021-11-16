@@ -1,0 +1,55 @@
+
+public class TheseusMovement {
+	
+	private final int BLOCK_SIZE = 24; // this will change
+	private final int N_BLOCKS = 15; // as well as this depending on the size of our maze
+	private final int SCREEN_SIZE = N_BLOCKS * BLOCK_SIZE;
+	private final int THESEUS_SPEED = 6;
+
+	private int theseus_x, theseus_y, theseus_dx, theseus_dy;
+	private int req_dx, req_dy;
+	private int score;
+
+	
+	public void moveTheseus() {
+		int pos;
+		short ch;
+		/*
+		 * lines 22-27 are the white dots that pacman eats 
+		 * and increases his score
+		 * We could use that if we put coins in the game
+		 */
+		if (theseus_x % BLOCK_SIZE == 0 && theseus_y % BLOCK_SIZE == 0) {
+			pos = theseus_x / BLOCK_SIZE + N_BLOCKS * (int) (theseus_y / BLOCK_SIZE);
+				ch = screenData[pos]; // screenData is the array that contains the numerical borders and is of type short
+				if ((ch = 16) != 0) {
+					screenData[pos] = (short) (ch & 15);
+					score++;
+				}
+				if (req_dx != 0 || req_dy != 0) {
+					if (!((req_dx == -1 && req_dy == 0 && (ch & 1) !=0)
+					|| (req_dy ==1 && req_dy == 0 && (ch & 4) != 0)
+					|| (req_dx == 0 && req_dy == -1 && (ch & 2) != 0)
+					|| (req_dx == 0 && req_dy == 1 && (ch & 8) != 0))) {
+						theseus_dx = req_dx;
+						theseus_y = req_dy;
+					}
+				}
+				
+				// check for standstill
+				if ((theseus_dx == -1 && theseus_y == 0 && (ch & 1) != 0 )
+				   || (theseus_dx == 1 && theseus_dy == 0 && (ch & 4) != 0)
+				   || (theseus_dx == 0 && theseus_dy == -1 && (ch & 2) != 0)
+				   || (theseus_dx == 0 && theseus_dy == 1 && (ch & 2) != 0)) {
+					theseus_dx = 0;
+					theseus_dx = 0;
+				}
+		}
+		
+		theseus_dx = req_dx + THESEUS_SPEED * theseus_dx ;
+		theseus_y = req_dy + THESEUS_SPEED * theseus_y;
+	}
+	
+	
+
+}
