@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finaljavyrinth.SignUpController">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="204.0" style="-fx-background-color: #CB280B;" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="407.0" style="-fx-background-color: #bcbcbc;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="14.0" layoutY="326.0" prefHeight="30.0" prefWidth="136.0" text="Already a member?">
+                    <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="112.0" prefHeight="30.0" prefWidth="110.0" text="Email">
+                    <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="10.0" layoutY="234.0" prefHeight="30.0" prefWidth="202.0" text="Re-enter Password">
+                    <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="userNameTF" layoutX="14.0" layoutY="81.0" prefHeight="31.0" prefWidth="193.0" promptText="john05" />
+                <TextField fx:id="emailTF" layoutX="14.0" layoutY="142.0" prefHeight="31.0" prefWidth="193.0" promptText="someone@example.com" />
+                <PasswordField fx:id="passwordTF" layoutX="15.0" layoutY="203.0" prefHeight="31.0" prefWidth="192.0" promptText="password" />
+                <Label layoutX="14.0" layoutY="173.0" prefHeight="30.0" prefWidth="110.0" text="Password">
+                    <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="repasswordTF" layoutX="15.0" layoutY="264.0" prefHeight="31.0" prefWidth="192.0" promptText="re-enter password" />
+                <Label alignment="CENTER" layoutY="14.0" prefHeight="31.0" prefWidth="395.0" text="SIGN UP">
+                    <font>
+                        <Font name="Verdana Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="signUpButton" layoutX="261.0" layoutY="270.0" mnemonicParsing="false" onAction="#signUpButtonOnAction" prefHeight="36.0" prefWidth="84.0" style="-fx-background-color: #CB280B;" text="Sign Up">
+                    <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="goToLoginButton" layoutX="27.0" layoutY="356.0" mnemonicParsing="false" onAction="#goToLoginButtonAction" prefHeight="36.0" prefWidth="84.0" style="-fx-background-color: #CB280B;" text="Login">
+                    <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="exitButton" layoutX="319.0" layoutY="361.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="31.0" prefWidth="68.0" style="-fx-background-color: #CB280B;" text="Exit">
+                    <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="45.0" prefHeight="30.0" prefWidth="110.0" text="Username">
+                    <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="signUpMessageL" alignment="CENTER" layoutX="207.0" layoutY="228.0" prefHeight="24.0" prefWidth="181.0" textFill="#b1000d">
+                    <font>
+                        <Font name="Verdana Bold" size="8.0" />
+                    </font>
+                </Label>
+            <CheckBox fx:id="showPasswordFieldsCB" alignment="CENTER" layoutX="27.0" layoutY="306.0" mnemonicParsing="false" onAction="#showPasswordFieldsCBOnAction" prefHeight="17.0" prefWidth="144.0" text="Show Password Fields">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </CheckBox>
+            <TextField fx:id="showPasswordTF" layoutX="15.0" layoutY="203.0" prefHeight="31.0" prefWidth="193.0" visible="false" />
+            <TextField fx:id="showRePasswordTF" layoutX="15.0" layoutY="264.0" prefHeight="31.0" prefWidth="193.0" visible="false" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
