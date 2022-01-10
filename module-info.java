@@ -1,3 +1,4 @@
-module Labyrinth {
+module quizTest {
+	requires java.sql;
 	requires java.desktop;
 }
