@@ -38,7 +38,7 @@ How to Run the project from your Eclipse-Workspace
                
                           Enjoy!
 Instructions of the Game
-   Welcome to Javyrinth!
+Welcome to Javyrinth!
       LogIn to play the game (if you already have an account)
       Else click the sign Up button and join us
       Click on the Instructions before you play
