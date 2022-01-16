@@ -1,6 +1,6 @@
 "Welcome, everybody!"
 
-Our final project is located in main branch inside the JavyrinthMaven_FinalProject folder
+Our final project is located in main branch inside the JavyrinthMaven_FinalRelease folder
 This folder contains 4 Javyrinth Maven Projects, that is our game.
 3 of these Projects (LogIn,Game,Quiz) can also run independently.
 JavyrinthMavenWraper is the Director who controls and brings them all together in one game.
