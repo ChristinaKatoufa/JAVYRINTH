@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: D5D0CE;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.InstructionsController">
+   <children>
+      <Separator layoutX="162.0" layoutY="76.0" prefHeight="6.0" prefWidth="277.0" style="-fx-background-color: BLACK;" />
+      <Label alignment="CENTER" layoutX="124.0" layoutY="91.0" prefHeight="17.0" prefWidth="352.0" text="Πώς να παίξεις/How To Play">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Label>
+      <TextArea editable="false" layoutX="24.0" layoutY="124.0" prefHeight="221.0" prefWidth="551.0" style="-fx-border-color: black; -fx-background-color: grey;" text="Ο χαρακτήρας σου είναι ο Θησέας και ξεκινώντας βρίσκεσαι μέσα στον λαβύρινθο με τον μυθικό Μινώταυρο.&#10;Ο χρόνος τρέχει, πρέπει να κυνηγήσεις και να εξουδετερώσεις το Μινώταυρο όσο το δυνατόν γρηγορότερα! Μπορείς να μετακινηθείς με τα πλήκτρα W,A,S,D. &#10;Στην συνέχεια πρέπει να απαντήσεις σε δέκα ερωτήσεις μυθολογίας, μέσα σε είκοσι δευτερόλεπτα το πολύ για την καθεμία, ώστε τραβώντας τον μίτο της Αριάδνης να εξέλθεις από τον λαβύρινθο. Για κάθε λάθος απάντηση που δίνεις, μία ίνα από τον μίτο σπάει. Έχεις περιθώριο έως δύο λάθος απαντήσεις, στην τρίτη ο μίτος θα κοπεί ολότελα και θα εγκλωβιστείς μέσα στον λαβύρινθο!&#10;Υπολογισμός Σκόρ: Αρχικά ξεκινάς με 1000 πόντους, ενώ για κάθε δευτερόλεπτο που περνά χωρίς να έχεις πιάσει τον Μινώταυρο, σου αφαιρούνται δέκα πόντοι. Μετέπειτα στο quiz, για κάθε σωστή απάντηση σου προστίθενται εκατό πόντοι στο σκορ σου.&#10;Βάλε τα δυνατά σου το 'χεις!" wrapText="true" />
+      <Button fx:id="gotItButton" alignment="CENTER" layoutX="494.0" layoutY="352.0" mnemonicParsing="false" onAction="#gotItButtonOnAction" prefHeight="33.0" prefWidth="76.0" style="-fx-background-color: #CB280B;" text="Got It">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="73.0" fitWidth="301.0" layoutX="150.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../javyrinth_transparent.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

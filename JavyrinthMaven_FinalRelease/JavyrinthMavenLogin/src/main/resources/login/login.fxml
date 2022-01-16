@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Controller">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="230.0" style="-fx-background-color: #CB280B;" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="2.0" layoutY="183.0" prefHeight="17.0" prefWidth="229.0" text="Game Based On Greek Mythology">
+                    <font>
+                        <Font name="Verdana" size="13.0" />
+                    </font>
+                </Label>
+                <Line endX="100.0" layoutX="116.0" layoutY="162.0" startX="-88.0" strokeWidth="2.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Line>
+                <Label alignment="CENTER" layoutY="343.0" prefHeight="17.0" prefWidth="229.0" text="2021 Javyrinth. All Rights Reserved" />
+            <ImageView fitHeight="69.0" fitWidth="220.0" layoutX="7.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../javyrinth_transparent.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="400.0" prefWidth="307.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="1.0" layoutY="21.0" prefHeight="17.0" prefWidth="292.0" text="LOGIN">
+                    <font>
+                        <Font name="Verdana" size="24.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <input>
+                                <InnerShadow />
+                            </input>
+                        </DropShadow>
+                    </effect>
+                </Label>
+                <Label layoutX="12.0" layoutY="98.0" prefHeight="31.0" prefWidth="96.0" text="Username">
+                    <font>
+                        <Font name="Verdana Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="15.0" layoutY="140.0" prefHeight="26.0" prefWidth="90.0" text="Password">
+                    <font>
+                        <Font name="Verdana Bold" size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="userNameTF" layoutX="120.0" layoutY="101.0" promptText="username" />
+                <PasswordField fx:id="passwordTF" layoutX="120.0" layoutY="141.0" promptText="password" />
+                <Button fx:id="loginButton" layoutX="88.0" layoutY="238.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="37.0" prefWidth="131.0" style="-fx-background-color: #CB280B;" text="Login">
+                    <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="exitButton" alignment="CENTER" layoutX="224.0" layoutY="354.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #CB280B;" text="Exit">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="signUpButton" layoutX="34.0" layoutY="354.0" mnemonicParsing="false" onAction="#signUpButtonOnAction" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: #CB280B;" text="Sign Up">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Label alignment="CENTER" layoutX="10.0" layoutY="326.0" prefHeight="17.0" prefWidth="143.0" text="New To Javyrinth?">
+                    <font>
+                        <Font name="Verdana Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="loginMessageL" alignment="CENTER" layoutX="2.0" layoutY="72.0" prefHeight="17.0" prefWidth="289.0" textFill="#cc0000" />
+            <CheckBox fx:id="showPasswordCB" layoutX="160.0" layoutY="182.0" mnemonicParsing="false" onAction="#showPasswordCBOnAction" text="Show Password">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </CheckBox>
+            <TextField fx:id="showPasswordTF" layoutX="120.0" layoutY="141.0" visible="false" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
