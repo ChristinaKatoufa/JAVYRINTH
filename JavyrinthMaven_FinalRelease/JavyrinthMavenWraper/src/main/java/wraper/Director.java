@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 public class Director {
 
 	private static String userName;
-	private static long gameplayDuration;
-	private static int quizCorrectAnswers;
+	private static long gameplayDuration = -2;
+	private static int quizCorrectAnswers = -2;
 
 	public static void main(String[] args) {
 		System.out.println("Director of JavyrinthMaven");
@@ -36,7 +36,7 @@ public class Director {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		} while (gameplayDuration==0);
+		} while (gameplayDuration == -2);
 		if (gameplayDuration == -1) System.exit(0);
 		
 		//System.out.println("Calling JavyrinthMaven quizModule");
@@ -48,7 +48,7 @@ public class Director {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		} while (quizCorrectAnswers==0);
+		} while (quizCorrectAnswers == -2);
 		if (quizCorrectAnswers == -1) System.exit(0);
 
 		int totalScore = (int) (quizCorrectAnswers * 100 + (100-gameplayDuration) * 10);
