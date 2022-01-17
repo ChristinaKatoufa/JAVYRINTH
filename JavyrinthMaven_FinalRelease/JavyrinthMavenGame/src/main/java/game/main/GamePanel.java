@@ -55,16 +55,22 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
 		this.setFocusable(true);
+		
+		theseus = new Theseus(this);
+		minotaur = new Minotaur(this);
 	}
 	/**
-	 * Dimiourgia olwn twn antikeimenwn
-	 * kai toy Thread
+	 * Dimiourgia toy Thread
 	 */
 	public void startGameThread() {
 		gameThread = new Thread(this);
 		
-		theseus = new Theseus(this);
-		minotaur = new Minotaur(this); 
+		//theseus = new Theseus(this);
+		//minotaur = new Minotaur(this); 
+		/*
+		 * Better to be instantiated to the constructor. 
+		 * It is a slow process and might have exception to some machines at line 149 invoking draw method. 
+		 */
 		audioChannel = new Audio();
 		addMainKeyListener();
 		ui = new UI(this);
