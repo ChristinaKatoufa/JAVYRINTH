@@ -58,6 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		theseus = new Theseus(this);
 		minotaur = new Minotaur(this);
+		ui = new UI(this);
 	}
 	/**
 	 * Dimiourgia toy Thread
@@ -66,14 +67,14 @@ public class GamePanel extends JPanel implements Runnable{
 		gameThread = new Thread(this);
 		
 		//theseus = new Theseus(this);
-		//minotaur = new Minotaur(this); 
+		//minotaur = new Minotaur(this);
+		//ui = new UI(this);
 		/*
 		 * Better to be instantiated to the constructor. 
 		 * It is a slow process and might have exception to some machines at line 149 invoking draw method. 
 		 */
 		audioChannel = new Audio();
 		addMainKeyListener();
-		ui = new UI(this);
 		
 		gameThread.start();
 	}
