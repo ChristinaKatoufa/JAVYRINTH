@@ -7,9 +7,10 @@ public final class ModuleData {
 
 	/**
 	 * Fields shouldn't be accessible from outside
+	 * Use volatile to make Module data thread safe!
          * Conventions: -2 not any data yet, -1 request to Exit
 	 */
-	private static int quizCorrectAnswers = -2;
+	private static volatile int quizCorrectAnswers = -2;
 	
 	/**
 	 * Forbid the usage of the default constructor from outside the class
