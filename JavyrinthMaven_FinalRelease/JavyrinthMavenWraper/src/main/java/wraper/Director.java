@@ -8,50 +8,77 @@ import javax.swing.JOptionPane;
  * Gets duration from labyrinth game
  * Gets score from the quiz
  * 
- * Calls out one Main Class after the other
- * 
- * and calculates the TotalScore
- * 
+ * Overrides run methods for each project and starts the threads threads
+ * Calculates the TotalScore in the end
  */
 public class Director {
 
 	private static String userName;
-	private static long gameplayDuration = -2;
+	private static long gameplayDuration = -2; // -2 Not any data yet, -1 request to Exit
 	private static int quizCorrectAnswers = -2;
+	
+	static Thread threadLogin, threadGame, threadQuiz;
 
 	public static void main(String[] args) {
-		System.out.println("Director of JavyrinthMaven");
-		
-		//System.out.println("Calling JavyrinthMaven loginModule");
-		login.Main.main(args);
-		userName = login.ModuleData.getUserName();
-		if (userName == null) System.exit(0);
-		
-		//System.out.println("Calling JavyrinthMaven gameModule");
-		game.main.Main.main(args);
-		do {
-			gameplayDuration = game.main.ModuleData.getGameplayDuration();
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		Runnable loginRunnable = new Runnable () {
+			@Override
+			public void run() {
+				login.Main.main(args);
+				do {
+					userName = login.ModuleData.getUserName();
+				} while (userName == null);
+				if (userName.equals("EXIT->")) System.exit(0);
 			}
-		} while (gameplayDuration == -2);
-		if (gameplayDuration == -1) System.exit(0);
+		};
 		
-		//System.out.println("Calling JavyrinthMaven quizModule");
-		quiz.Main.main(args);
-		do {
-			quizCorrectAnswers = quiz.ModuleData.getQuizCorrectAnswers();
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		Runnable gameRunnable = new Runnable () {
+			@Override
+			public void run() {
+				game.main.Main.main(args);
+				do {
+					gameplayDuration = game.main.ModuleData.getGameplayDuration();
+				} while (gameplayDuration == -2);
+				if (gameplayDuration == -1) System.exit(0);
 			}
-		} while (quizCorrectAnswers == -2);
-		if (quizCorrectAnswers == -1) System.exit(0);
+		};
+		
+		Runnable quizRunnable = new Runnable () {
+			@Override
+			public void run() {
+				quiz.Main.main(args);
+				do {
+					quizCorrectAnswers = quiz.ModuleData.getQuizCorrectAnswers();
+				} while (quizCorrectAnswers == -2);
+				if (quizCorrectAnswers == -1) System.exit(0);
+			}
+		};
+			
+		threadLogin = new Thread(loginRunnable);
+		threadGame = new Thread(gameRunnable);
+		threadQuiz = new Thread(quizRunnable);
+		
+		threadLogin.start();
+		try {
+			threadLogin.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		threadGame.start();
+		try {
+			threadGame.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+			
+		threadQuiz.start();
+		try {
+			threadQuiz.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-		int totalScore = (int) (quizCorrectAnswers * 100 + (100-gameplayDuration) * 10);
+		int totalScore = (int) (quizCorrectAnswers * 100 + (100 - gameplayDuration) * 10);
 		totalScore = totalScore > 0 ? totalScore : 0;
 		
 		DBConnections.insertScore(userName, totalScore);	
@@ -60,7 +87,7 @@ public class Director {
 				"Dear, "+userName+" your total score is: "+totalScore
 				+"\nYou eliminated Minotaur in: "+gameplayDuration+" seconds."
 				+"\nSuccessfully answered: "+quizCorrectAnswers+" quiz questions."
-				+"\n[score = quizCorrectAnswers*100 + (100-gameplayDuration)*10]");
+				+"\n[score = quizCorrectAnswers * 100 + (100 - gameplayDuration) * 10]");
 		
 		Audio audio = new Audio();
 		audio.play(Audio.MENU);
