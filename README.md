@@ -73,3 +73,7 @@ Welcome to Javyrinth!
 
 P.S
 Using maven-shade-plugin is one way to export runnable jar of a java modular project, otherwise it was not possible (this took us a long time to realise)
+
+            Note:
+            gitHub messed up with greek encoding!!
+            jar is working just fine because it was created in my pc.
